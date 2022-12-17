@@ -1,6 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import ErrorHandler from "./views/Error-Handler/ErrorHandler";
 import Main from "./views/layout/Main";
+import Home from "./views/pages/Home/Index";
 import TableView from "./views/TableView/Index";
+
+const notFoundError = new Error("404 not found.");
+notFoundError.code = 404;
 
 const router = createBrowserRouter([
   {
@@ -9,13 +14,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1 className="text-4xl font-bold text-indigo-500">HOME</h1>,
+        element: <Home/>,
       },
       {
         path: "/table-view",
         element: <TableView />,
       },
     ],
+    errorElement: <ErrorHandler />,
+  },
+  {
+    path: "*",
+    element: <ErrorHandler error={notFoundError} />,
   },
 ]);
 export default router;

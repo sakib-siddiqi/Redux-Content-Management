@@ -13,7 +13,7 @@ const TableView = () => {
   if (error) return error;
 
   return (
-    <div className="max-w-7xl mx-auto py-4 px-2">
+    <div className="container py-4">
       <Table
         title="Table One"
         data={data}
