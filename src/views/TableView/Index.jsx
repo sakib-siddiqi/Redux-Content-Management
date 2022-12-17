@@ -36,6 +36,17 @@ const TableView = () => {
           { title: "Rating", query: "rating.rate" },
         ]}
       />
+      <br />
+      <hr className="border-0 h-[2px] bg-gradient-to-r from-indigo-300 to-transparent rounded-lg my-4" />
+      <br />
+
+      <Table
+        title="Table Three"
+        data={data}
+        fields={[
+          { title: "Title", query: "title" },
+        ]}
+      />
     </div>
   );
 };

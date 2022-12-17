@@ -11,7 +11,7 @@ const ErrorHandler = ({ error }) => {
   }
 
   return (
-    <main className="bg-gradient-to-bl from-rose-600 to-rose-700 h-screen w-full grid place-items-center">
+    <main className="bg-gradient-to-bl from-rose-600 to-rose-700 overflow-auto h-screen grid place-items-center">
       <div className="m-3 p-3 rounded-md bg-slate-50/10 border-2 border-slate-50/20">
         <img
           src={image}

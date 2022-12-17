@@ -14,7 +14,7 @@ const Table = ({ data, fields, title }) => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th>{undefined.hello}</th>
+              <th></th>
               {fields?.map((field) => (
                 <th>{field?.title}</th>
               ))}

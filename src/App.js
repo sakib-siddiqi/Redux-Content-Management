@@ -1,17 +1,17 @@
-import { ErrorBoundary } from "react-error-boundary";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { RouterProvider } from "react-router-dom";
+import { fetchProducts } from "./redux/slice/product.slice";
 import router from "./router";
-import ErrorHandler from "./views/Error-Handler/ErrorHandler";
-const queryClient = new QueryClient();
+
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch])
   return (
-    <ErrorBoundary FallbackComponent={ErrorHandler}>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </ErrorBoundary>
+    <RouterProvider router={router} />
   );
 }
 
