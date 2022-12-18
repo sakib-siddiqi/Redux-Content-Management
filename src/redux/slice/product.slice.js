@@ -15,7 +15,7 @@ export const fetchProducts = createAsyncThunk("products/fetch-all-products", asy
 
 
 const productSlice = createSlice({
-    name: "PRODUCT SLICE",
+    name: "PRODUCTS",
     initialState,
     reducers: {
         addProduct(state, { payload }) {
