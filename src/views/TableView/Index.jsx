@@ -1,16 +1,25 @@
-import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
+import { useGetProductsQuery } from "../../features/api/rtk-slice/product.api";
 import Table from "./Table";
 
-const API_URL = "https://fakestoreapi.com/products";
 const TableView = () => {
-  const { data, isLoading, error } = useQuery("fake-store-products", () => {
-    return axios(API_URL).then((dt) => dt.data);
-  });
-
-  if (isLoading) return <h1>Loading...</h1>;
-  if (error) return error;
+  const { data, isLoading, isError, error } = useGetProductsQuery();
+  if (isLoading)
+    return (
+      <div className="container my-6">
+        <h1 className="text-lg text-slate-800 font-bold tracking-wide">
+          Loading...
+        </h1>
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="container my-6">
+        <h1 className="text-lg text-slate-800 font-bold tracking-wide">
+          Error:{error}
+        </h1>
+      </div>
+    );
 
   return (
     <div className="container py-4">

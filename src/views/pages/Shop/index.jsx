@@ -2,7 +2,7 @@ import React from "react";
 import { useGetProductsQuery } from "../../../features/api/rtk-slice/product.api";
 import ProductCard from "../../common/card/Product.card";
 
-const Home = () => {
+const Shop = () => {
   const { data: products, isLoading, isError, error } = useGetProductsQuery();
   if (isLoading)
     return (
@@ -20,7 +20,6 @@ const Home = () => {
         </h1>
       </div>
     );
-
   return (
     <div className="container my-6">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
@@ -32,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Shop;

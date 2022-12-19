@@ -1,5 +1,5 @@
 import axios from "axios";
-import { api_route } from "./api";
+import { api_route } from ".";
 
 const product_api={};
 product_api.allProducts=async function(){

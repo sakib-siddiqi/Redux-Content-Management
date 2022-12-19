@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import product_api from "../../api/product.api";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     products: [],
@@ -7,11 +6,12 @@ const initialState = {
     error: null,
 };
 
-export const fetchProducts = createAsyncThunk("products/fetch-all-products", async (params) => {
-    console.log({ params })
-    const data = await product_api.allProducts();
-    return data.data;
-})
+/* ----> THUNK ACTION <---- */
+// export const fetchProducts = createAsyncThunk("products/fetch-all-products", async (params) => {
+//     console.log({ params })
+//     const data = await product_api.allProducts();
+//     return data.data;
+// })
 
 
 const productSlice = createSlice({
@@ -31,24 +31,25 @@ const productSlice = createSlice({
             }
         }
     },
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchProducts.fulfilled, (state, action) => {
-                state.products = action.payload;
-                state.isLoading = false;
-                state.error = null;
-            })
-            .addCase(fetchProducts.pending, (state, action) => {
-                state.products = [];
-                state.isLoading = true;
-                state.error = null;
-            })
-            .addCase(fetchProducts.rejected, (state, action) => {
-                state.products = [];
-                state.isLoading = false;
-                state.error = action.error;
-            })
-    }
+    /* ----> THUNK EXTRA REDUCERS <---- */
+    // extraReducers: (builder) => {
+    //     builder
+    //         .addCase(fetchProducts.fulfilled, (state, action) => {
+    //             state.products = action.payload;
+    //             state.isLoading = false;
+    //             state.error = null;
+    //         })
+    //         .addCase(fetchProducts.pending, (state, action) => {
+    //             state.products = [];
+    //             state.isLoading = true;
+    //             state.error = null;
+    //         })
+    //         .addCase(fetchProducts.rejected, (state, action) => {
+    //             state.products = [];
+    //             state.isLoading = false;
+    //             state.error = action.error;
+    //         })
+    // }
 });
 
 export const { addProduct, removeProduct } = productSlice.actions;

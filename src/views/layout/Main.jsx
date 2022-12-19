@@ -7,6 +7,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Table", href: "/table-view" },
   { name: "Shop", href: "/shop" },
+  { name: "Dashbaord", href: "/dashboard" },
 ];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
